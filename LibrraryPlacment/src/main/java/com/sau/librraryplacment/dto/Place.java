@@ -1,7 +1,7 @@
 package com.sau.librraryplacment.dto;
 
 public class Place {
-    int Id;
+    int id;
     String building;
     String floor;
     String room;
@@ -12,7 +12,7 @@ public class Place {
     }
 
     public Place(int id, String building, String floor, String room, int seat) {
-        Id = id;
+        this.id = id;
         this.building = building;
         this.floor = floor;
         this.room = room;
@@ -20,11 +20,11 @@ public class Place {
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getBuilding() {
@@ -61,13 +61,13 @@ public class Place {
 /*
     @Override
     public String toString(){
-        return "Car{" +
-                "id=" + Id +
-                ", brand='" + building + '\'' +
-                ", model='" + floor + '\'' +
-                ", plate='" + seat + '\'' +
+        return "Place{" +
+                "id=" + id +
+                ", building='" + building + '\'' +
+                ", floor='" + floor + '\'' +
+                ", seat='" + seat + '\'' +
                 '}';
     }
-
 */
+
 }

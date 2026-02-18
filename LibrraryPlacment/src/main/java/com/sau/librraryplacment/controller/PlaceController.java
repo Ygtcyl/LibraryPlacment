@@ -4,11 +4,15 @@ import com.sau.librraryplacment.dto.Place;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+
+import java.util.Optional;
+
 public class PlaceController {
     @FXML
-    TextField Id;
+    TextField placeId;
 
     @FXML
     TextField building;
@@ -42,11 +46,11 @@ public class PlaceController {
 
     @FXML
     void clearPlace(ActionEvent event){
-        Id.clear();
-        building.clear();
-        floor.clear();
-        room.clear();
-        seat.clear();
+        placeId.setText("");
+        building.setText("");
+        floor.setText("");
+        room.setText("");
+        seat.setText("");
     }
 
     @FXML
@@ -66,7 +70,23 @@ public class PlaceController {
 
     @FXML
     void getPlace(ActionEvent event){
+        checkId(placeId.getText(), event);
+        PlaceCrudOperations placeCrudOperations = new PlaceCrudOperations();
+        int id = Integer.parseInt(placeId.getText());
+        Optional<Place> place = placeCrudOperations.getPlaceById(id);
+        if(place.isPresent()){
+            placeId.setText(Integer.toString(place.get().getId()));
+            floor.setText(place.get().getFloor());
+            building.setText(place.get().getBuilding());
+            room.setText(place.get().getRoom());
+            seat.setText(Integer.toString(place.get().getSeat()));
 
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Placer with id " + id + " not found");
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -74,4 +94,13 @@ public class PlaceController {
 
     }
 
+    public void checkId(String id, ActionEvent event) {
+        if (id.isEmpty() || Integer.parseInt(id) <= 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Id is wrong!");
+            alert.showAndWait();
+            clearPlace(event);
+        }
+    }
 }

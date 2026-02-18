@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 public class StudentController {
     @FXML
-    TextField Id;
+    TextField studentId;
 
     @FXML
     TextField name;
@@ -30,9 +30,9 @@ public class StudentController {
 
     @FXML
     void clearStudent(ActionEvent event){
-        Id.clear();
-        name.clear();
-        dprtm.clear();
+        studentId.setText("");
+        name.setText("");
+        dprtm.setText("");
     }
 
     @FXML

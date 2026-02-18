@@ -13,7 +13,7 @@
             <Label layoutX="26.0" layoutY="109.0" />
             <TextField fx:id="studentId" layoutX="89.0" layoutY="16.0" />
             <TextField fx:id="name" layoutX="89.0" layoutY="46.0" />
-            <TextField fx:id="dprtmnt" layoutX="89.0" layoutY="76.0" />
+            <TextField fx:id="dprtm" layoutX="89.0" layoutY="76.0" />
             <Button fx:id="getStudent" layoutX="267.0" layoutY="16.0" mnemonicParsing="false" onAction="#getStudent" text="GET" />
             <Button fx:id="updateStudent" layoutX="96.0" layoutY="138.0" mnemonicParsing="false" onAction="#updateStudent" text="UPDATE" />
             <Button fx:id="saveStudent" layoutX="34.0" layoutY="139.0" mnemonicParsing="false" onAction="#saveStudent" text="SAVE" />
